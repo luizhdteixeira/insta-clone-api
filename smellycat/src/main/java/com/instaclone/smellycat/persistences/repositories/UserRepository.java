@@ -1,6 +1,6 @@
-package com.instaclone.smellycat.domains.repositories;
+package com.instaclone.smellycat.persistences.repositories;
 
-import com.instaclone.smellycat.domains.model.User;
+import com.instaclone.smellycat.persistences.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

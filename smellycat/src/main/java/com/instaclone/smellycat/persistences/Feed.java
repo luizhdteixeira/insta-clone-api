@@ -1,4 +1,4 @@
-package com.instaclone.smellycat.domains.model;
+package com.instaclone.smellycat.persistences;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -6,16 +6,14 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_FEED")
 public class Feed implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID_FEED", unique = true)
     private UUID uuid;
-    @OneToOne(targetEntity = User.class)
+    @OneToOne
     private User user;
-    @OneToMany(targetEntity = Post.class)
+    @OneToMany
     private List<Post> post;
 
     public Feed() {
