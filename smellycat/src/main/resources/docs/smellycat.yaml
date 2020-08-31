@@ -1,0 +1,90 @@
+swagger: "2.0"
+info:
+  title: Smellycat API
+  description: API in order to offer posting services, posting panel and user of the panel and posts.
+  version: 1.0.0
+host: smellycat.com
+basePath: /api
+tags:
+  - name: User
+    description: CRUD USER
+  - name: Feed
+    description: CRUD FEED
+  - name: Post
+    description: CRUD POST
+schemes:
+  - https
+  - http
+securityDefinitions:
+  auth:
+    type: oauth2
+    authorizationUrl: http://TBD
+    flow: implicit
+    scopes:
+      write:api: modify endpoints
+      read:api: read endpoints
+
+paths:
+  /users:
+    get:
+      tags:
+        - User
+      summary: Returns a list of users.
+      description: ""
+      operationId: getUsers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+        400:
+          description: BAD REQUEST
+        404:
+          description: INVALID REQUEST
+      security:
+        - auth:
+          - 'read:api'
+  /posts:
+    get:
+      tags:
+        - Post
+      summary: Returns a list of posts.
+      description: ""
+      operationId: getPosts
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+        400:
+          description: BAD REQUEST
+        404:
+          description: INVALID REQUEST
+      security:
+        - auth:
+            - 'read:api'
+  /feeds:
+    get:
+      tags:
+        - Feed
+      summary: Returns a list of feeds.
+      description: ""
+      operationId: getFeeds
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+        400:
+          description: BAD REQUEST
+        404:
+          description: INVALID REQUEST
+      security:
+        - auth:
+            - 'read:api'
